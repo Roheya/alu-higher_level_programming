@@ -8,4 +8,7 @@ def uppercase(str):
             result += chr(ord(ch) - 32)
         else:
             result += ch
+    # First print: show the result
     print("{}".format(result))
+    # Second print: just a newline (still uses string format)
+    print("{}".format(""))
