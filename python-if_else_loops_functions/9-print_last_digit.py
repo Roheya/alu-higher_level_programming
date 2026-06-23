@@ -3,6 +3,7 @@ def uppercase(str):
     """Prints a string in uppercase followed by a new line."""
     result = ""
     for ch in str:
+        # Convert lowercase letters to uppercase using ASCII math
         if 'a' <= ch <= 'z':
             result += chr(ord(ch) - 32)
         else:
