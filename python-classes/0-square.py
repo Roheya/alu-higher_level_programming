@@ -3,7 +3,6 @@
 This module defines an empty Square class.
 It is documented according to PEP8 guidelines.
 """
-
 class Square:
     """
     Square class (empty).
