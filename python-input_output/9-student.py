@@ -5,6 +5,8 @@ Class Student that defines a student by:
 - Instantiation with first_name, last_name and age
 - Public method to_json() that retrieves a dictionary representation
 """
+
+
 class Student:
     """Defines a student"""
 
