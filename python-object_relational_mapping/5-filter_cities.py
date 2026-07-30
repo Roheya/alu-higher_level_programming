@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-"""This module provides a script that lists all cities of a given state.
+"""Script that lists all cities of a given state."""
 
-The script safely handles user inputs using parameterized placeholders to prevent
-SQL injection vulnerabilities, fetching results sorted by city ID.
-"""
 import MySQLdb
 import sys
 
+
 if __name__ == "__main__":
-    # Fix: Ensure strict single integer indexing to pass strings instead of lists
     db_user = sys.argv[1]
     db_pass = sys.argv[2]
     db_name = sys.argv[3]
