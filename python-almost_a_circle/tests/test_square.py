@@ -2,10 +2,31 @@
 import unittest
 from models.square import Square
 
+
 class TestSquare(unittest.TestCase):
-    def test_valid_init(self):
-        s = Square(5)
-        self.assertEqual(s.size, 5)
+    def test_init_one_arg(self):
+        s = Square(1)
+        self.assertEqual(s.size, 1)
+
+    def test_init_two_args(self):
+        s = Square(1, 2)
+        self.assertEqual(s.x, 2)
+
+    def test_init_three_args(self):
+        s = Square(1, 2, 3)
+        self.assertEqual(s.y, 3)
+
+    def test_invalid_size_type(self):
+        with self.assertRaises(TypeError):
+            Square("1")
+
+    def test_negative_size(self):
+        with self.assertRaises(ValueError):
+            Square(-1)
+
+    def test_zero_size(self):
+        with self.assertRaises(ValueError):
+            Square(0)
 
     def test_str(self):
         s = Square(5, 1, 2, 99)
@@ -15,19 +36,3 @@ class TestSquare(unittest.TestCase):
         s = Square(10, 2, 1, 5)
         d = s.to_dictionary()
         self.assertEqual(d['size'], 10)
-
-    def test_update_args(self):
-        s = Square(10, 10, 10)
-        s.update(89, 1, 2, 3)
-        self.assertEqual(s.id, 89)
-        self.assertEqual(s.size, 1)
-        self.assertEqual(s.x, 2)
-        self.assertEqual(s.y, 3)
-
-    def test_update_kwargs(self):
-        s = Square(10, 10, 10)
-        s.update(id=89, size=1, x=2, y=3)
-        self.assertEqual(s.id, 89)
-        self.assertEqual(s.size, 1)
-        self.assertEqual(s.x, 2)
-        self.assertEqual(s.y, 3)

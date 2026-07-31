@@ -2,6 +2,7 @@
 import unittest
 from models.base import Base
 
+
 class TestBase(unittest.TestCase):
     def test_auto_id(self):
         b1 = Base()
@@ -19,10 +20,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Base.to_json_string([]), "[]")
 
     def test_to_json_string_list(self):
-        self.assertEqual(
-            Base.to_json_string([{'id': 12}]),
-            '[{"id": 12}]'
-        )
+        self.assertEqual(Base.to_json_string([{'id': 12}]), '[{"id": 12}]')
 
     def test_from_json_string_none(self):
         self.assertEqual(Base.from_json_string(None), [])
