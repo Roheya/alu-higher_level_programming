@@ -1,7 +1,7 @@
-const converter = require('./10-converter').converter;
+#!/usr/bin/node
 
-let myConverter = converter(16);
-
-console.log(myConverter(2));   // 2
-console.log(myConverter(12));  // c
-console.log(myConverter(89));  // 59
+exports.converter = function (base) {
+  return function (number) {
+    return number.toString(base);
+  };
+};
