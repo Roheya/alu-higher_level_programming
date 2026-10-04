@@ -4,20 +4,20 @@ const request = require('request');
 
 request(process.argv[2], (error, response, body) => {
   if (error) {
-    console.error(error);
+    console.log(error);
     return;
   }
 
-  const tasks = JSON.parse(body);
+  const todos = JSON.parse(body);
   const completedTasks = {};
 
-  tasks.forEach((task) => {
+  todos.forEach(task => {
     if (task.completed) {
-      if (!completedTasks[task.userId]) {
-        completedTasks[task.userId] = 0;
+      if (completedTasks[task.userId]) {
+        completedTasks[task.userId]++;
+      } else {
+        completedTasks[task.userId] = 1;
       }
-
-      completedTasks[task.userId] += 1;
     }
   });
 
